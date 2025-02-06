@@ -21,7 +21,10 @@ func NewLogger(options ...zap.Option) (*zap.Logger, error) {
 }
 
 func NewGinLoggerMiddleware(logger *zap.Logger) gin.HandlerFunc {
-	return ginzap.Ginzap(logger, time.RFC3339, true)
+	return func(ctx *gin.Context) {
+		ginzap.Ginzap(logger, time.RFC3339, true)(ctx)
+		ginzap.RecoveryWithZap(logger, true)(ctx)
+	}
 }
 
 func NewGormLogger(logger *zap.Logger) gormLog.Interface {

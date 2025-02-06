@@ -24,3 +24,7 @@ func NewListener(ctx context.Context) func() error {
 		}
 	}
 }
+
+func IsStopped(err error) bool {
+	return errors.Is(err, ErrStopped)
+}
