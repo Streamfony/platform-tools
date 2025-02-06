@@ -1,8 +1,9 @@
 package logger
 
 import (
-	"Streamfony/platform-tools/env"
 	"time"
+
+	"github.com/Streamfony/platform-tools/env"
 
 	ginzap "github.com/gin-contrib/zap"
 	"github.com/gin-gonic/gin"

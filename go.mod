@@ -1,4 +1,4 @@
-module Streamfony/platform-tools
+module github.com/Streamfony/platform-tools
 
 go 1.22.3
 
